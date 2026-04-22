@@ -31,3 +31,24 @@ def create_note():
     note_text = input("Введите текст заметки: ")
 
     build_note(note_text, note_name)
+
+
+def read_note():
+    """Читает и выводит заметку"""
+
+    try:
+        note_name_read = input(
+            "Введите название заметки, которую хотите прочитать: "
+        ).strip()
+        path = f"{note_name_read}.txt"
+
+        if os.path.isfile(path):
+            with open(path, "r", encoding="utf-8") as file:
+                note_text = file.read()
+            print(note_text)
+
+        else:
+            print("Заметка с таким названием не существует")
+
+    except OSError as e:
+        print(f"Ошибка при работе с файлом: {e}")
