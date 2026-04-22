@@ -52,3 +52,27 @@ def read_note():
 
     except OSError as e:
         print(f"Ошибка при работе с файлом: {e}")
+
+
+def edit_note():
+    """Редактирует заметку"""
+
+    try:
+        note_name_edit = input(
+            "Введите название заметки, которую хотите отредактировать: "
+        ).strip()
+        path = f"{note_name_edit}.txt"
+
+        if os.path.isfile(path):
+            print("Такая заметка существует!")
+            edit_note_text = input("Введите новый текст заметки: ")
+
+            with open(path, "w", encoding="utf-8") as file:
+                file.write(edit_note_text)
+            print(f"Заметка {note_name_edit} отредактирована!")
+
+        else:
+            print("Заметка с таким названием не существует")
+
+    except OSError as e:
+        print(f"Ошибка при работе с файлом: {e}")
