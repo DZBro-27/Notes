@@ -76,3 +76,22 @@ def edit_note():
 
     except OSError as e:
         print(f"Ошибка при работе с файлом: {e}")
+
+
+def delete_note():
+    """Удаляет заметку."""
+
+    try:
+
+        trash_note = input("Введите имя заметки, которую хотите удалить:").strip()
+        path = f"{trash_note}.txt"
+
+        if os.path.isfile(path):
+            os.remove(path)
+            print(f"Заметка {trash_note} удалена!")
+
+        else:
+            print(f"Заметка с именем {trash_note} не найдена.")
+
+    except OSError as e:
+        print(f"Ошибка при работе с файлом: {e}")
