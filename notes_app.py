@@ -143,3 +143,45 @@ def display_sorted_notes():
 
     except OSError as e:
         print(f"Ошибка при работе с файлами: {e}")
+
+
+def main():
+    """Главное меню программы"""
+
+    while True:
+        action = input(
+            "\nВыберите действие:\n"
+            "1 — создать заметку\n"
+            "2 — прочитать заметку\n"
+            "3 — редактировать заметку\n"
+            "4 — удалить заметку\n"
+            "5 — показать заметки (от короткой к длинной)\n"
+            "6 — показать заметки (от длинной к короткой)\n"
+            "0 — выход\n"
+            "Ваш выбор: "
+        ).strip()
+
+        if action == "1":
+            create_note()
+
+        elif action == "2":
+            read_note()
+
+        elif action == "3":
+            edit_note()
+
+        elif action == "4":
+            delete_note()
+
+        elif action == "5":
+            display_notes()
+
+        elif action == "6":
+            display_sorted_notes()
+
+        elif action == "0":
+            print("Выход из программы.")
+            break
+
+        else:
+            print("Некорректный ввод. Попробуйте снова.")
