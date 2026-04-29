@@ -1,5 +1,4 @@
 import os
-import re
 
 
 def build_note(note_text, note_name):
