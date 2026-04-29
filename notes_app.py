@@ -95,3 +95,27 @@ def delete_note():
 
     except OSError as e:
         print(f"Ошибка при работе с файлом: {e}")
+
+
+def display_notes():
+    """Выводит все заметки от самой короткой к самой длинной."""
+
+    try:
+        notes = []
+
+        for note in os.listdir():
+            if note.endswith(".txt"):
+                notes.append(note)
+
+        sorted_notes = sorted(notes, key=len)
+
+        if sorted_notes:
+            print("Заметки от самой короткой к самой длинной:")
+
+            for note in sorted_notes:
+                print(note)
+        else:
+            print("Заметок пока нет.")
+
+    except OSError as e:
+        print(f"Ошибка при работе с файлами: {e}")
